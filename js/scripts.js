@@ -1,8 +1,8 @@
 //Business Logic
 var sentenceArray; // remember to move into function later.
 var inputValue;
-var rows;
-var columns;
+var col;
+var outerArray = [];
 function cryptoSquare(input){
   if(!isNaN(input)){
     alert("Please enter a sentence!");
@@ -10,17 +10,19 @@ function cryptoSquare(input){
     inputValue = inputValue.toLowerCase();
     inputValue = inputValue.replace(/[\s\W]/g, "");
     sentenceArray = inputValue.split("");
-    var square = findClosestSquare(sentenceArray);
+    var col = getCol(sentenceArray);
+    while (sentenceArray.length > 0){
+      outerArray.push(sentenceArray.splice(0, col));
+    }
+    console.log(outerArray);
     return sentenceArray;
   }
 }
 
-function findClosestSquare(array){
+function getCol(array){
    var arrayLength = array.length;
-   rows = Math.ceil(Math.sqrt(arrayLength));
-   columns =  Math.ceil(Math.sqrt(arrayLength));
-   console.log('rows:', rows);
-   console.log('columns:', columns);
+   col =  Math.ceil(Math.sqrt(arrayLength));
+   return col;
 }
 
 //interface Logic
