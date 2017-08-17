@@ -6,7 +6,9 @@ function cryptoSquare(input){
     alert("Please enter a sentence!");
   } else {
     inputValue = inputValue.toLowerCase();
-    return sentenceArray = inputValue.split("");
+    inputValue = inputValue.replace(/[\s\W]/g, "");
+    sentenceArray = inputValue.split("");
+    return sentenceArray;
   }
 }
 
