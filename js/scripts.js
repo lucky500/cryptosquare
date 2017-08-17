@@ -1,7 +1,12 @@
 //Business Logic
+var sentenceArray; // remember to move into function later.
+var inputValue;
 function cryptoSquare(input){
-  if(input != String){
+  if(!isNaN(input)){
     alert("Please enter a sentence!");
+  } else {
+    inputValue = inputValue.toLowerCase();
+    return sentenceArray = inputValue.split("");
   }
 }
 
@@ -9,7 +14,7 @@ function cryptoSquare(input){
 $(document).ready(function(){
   $('form#sentence-form').submit(function(e){
     e.preventDefault();
-    var inputValue = $('input#sentence').val();
+    inputValue = $('input#sentence').val();
     console.log(inputValue);
     console.log(cryptoSquare(inputValue));
   });
